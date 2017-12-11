@@ -1,0 +1,61 @@
+#Instalar o mysql na VM
+	
+	sudo apt-get install mysql-server
+
+#Digitar a senha “root” para o usurio root
+	
+	sudo mysql_secure_installation
+
+#Para testar a instalacao, rodar o comando a seguir:
+
+	systemctl status mysql.service
+
+#Se o servico estiver rodando, retornara o status abaixo:
+
+● mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2017-04-14 17:13:38 PDT; 3min 47s ago
+ Main PID: 87487 (mysqld)
+   CGroup: /system.slice/mysql.service
+           └─87487 /usr/sbin/mysqld
+
+
+#Se nao estiver rodando, executar o comando a seguir:
+
+	sudo systemctl mysql start
+
+#criar diretorio
+
+	sudo mkdir /home/bkp_banco/
+	sudo chmod -R 777 /home/bkp_banco/
+
+#copiar o arquivo dump_20171023.zip para o diretorio: /home/bkp_banco/ e após descompactá-lo
+#conectar no mysql com o usuario root. Digitar a senha root
+	
+	mysql -u root -p
+	create database onibus_db;
+	use onibus_db;
+
+#crie as tabelas que serão utilizada no processo de exportação
+
+	CREATE TABLE ws_coleta (
+	  dataHora		timestamp NOT NULL,
+	  ordem 		varchar(7) NOT NULL,
+	  linha 		varchar(7) NOT NULL,
+	  latitude 		float NOT NULL,
+	  longitude 	float NOT NULL,
+	  velocidade	float NOT NULL
+	);
+
+	CREATE TABLE staging_ws_coleta (
+	  dataHora		timestamp NOT NULL,
+	  ordem 		varchar(7) NOT NULL,
+	  linha 		varchar(7) NOT NULL,
+	  latitude 		float NOT NULL,
+	  longitude 	float NOT NULL,
+	  velocidade	float NOT NULL
+	);
+
+#rodar o comando abaixo para criar os objetos no banco de dados.
+	
+	source /home/bkp_banco/dump_20171023.sql

@@ -1,0 +1,6 @@
+Na pasta de criação do ambiente estão sendo disponibilizados todos os passos necessários para criação do ambiente, será necessário apenas seguir a sequência dos arquivos numerados. Em caso de dúvida ou dificuldade fique a vontade para entrar em contato que retornarei o mais breve possível.
+
+Para um trabalho acadêmico, não precisamos de um servidor com muitos recursos. Utilizado as seguintes configurações:
+	- Sistema Operacional Ubuntu 16.04
+	- Processador Intel (R) Atom (TM) CPU C2750 2.40GHz
+	- 4GB de Memória RAM

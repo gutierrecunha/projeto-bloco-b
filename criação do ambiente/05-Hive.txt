@@ -1,0 +1,38 @@
+#crie o diretorio e execute os comandos
+
+	sudo mkdir hive
+	cd /usr/local/hive
+	sudo wget http://www-eu.apache.org/dist/hive/hive-1.2.2/apache-hive-1.2.2-bin.tar.gz
+	sudo tar -xzvf apache-hive-1.2.2-bin.tar.gz
+	sudo mv apache-hive-1.2.2-bin/* /usr/local/hive
+	sudo rmdir apache-hive-1.2.2-bin
+	sudo rm apache-hive-1.2.2-bin.tar.gz
+	sudo chown -R hduser:hadoop /usr/local/hive
+	sudo vi ~/.bashrc
+
+	#HIVE VARIABLES START
+	export HIVE_HOME=/usr/local/hive
+	export PATH=$PATH:$HIVE_HOME/bin
+	#HIVE VARIABLES END
+
+	source ~/.bashrc
+	cd /usr/local/hive/bin
+	vim hive-config.sh
+
+	export HADOOP_HOME=/usr/local/hadoop
+
+#cria os diretórios no hadoop
+	hadoop fs -mkdir /tmp
+	hadoop fs -mkdir -p /user/hive/warehouse
+	hadoop fs -chmod g+w /tmp
+	hadoop fs -chmod g+w /user/hive/warehouse
+
+	cp /usr/local/hive/lib/jline-2.12.jar /usr/local/hadoop/share/hadoop/yarn/lib/
+	rm /usr/local/hadoop/share/hadoop/yarn/lib/jline-0.9.94.jar
+	cd /usr/local/hive/bin
+
+#inicia o terminal do hive
+
+	hive
+	show databases;
+	quit;

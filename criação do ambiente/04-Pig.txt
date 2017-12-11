@@ -1,0 +1,30 @@
+#crie o diretório e execute os comandos
+	sudo mkdir /usr/local/pig
+	cd /usr/local/pig
+	sudo wget http://mirror.nbtelecom.com.br/apache/pig/latest/pig-0.17.0.tar.gz
+	sudo tar -xvf pig-0.17.0.tar.gz 
+	sudo mv ./pig-0.17.0/* .
+	sudo rm -R pig-0.17.0
+	sudo vim ~/.bashrc
+
+	#PIG VARIABLES START
+	export PIG_HOME=/usr/local/pig
+	export PATH=$PATH:$PIG_HOME/bin
+	export PIG_CLASSPATH=$HADOOP_CONF_DIR
+	export PIG_CLASSPATH="$HCAT_HOME/share/hcatalog/hive-hcatalog-core*.jar:\
+	$HCAT_HOME/share/hcatalog/ hive-hcatalog-pig-adapter*.jar:\
+	$HIVE_HOME/lib/hive-metastore-*.jar:$HIVE_HOME/lib/libthrift-*.jar:\
+	$HIVE_HOME/lib/hive-exec-*.jar:$HIVE_HOME/lib/libfb303-*.jar:\
+	$HIVE_HOME/lib/jdo2-api-*-ec.jar:$HIVE_HOME/conf:$HADOOP_HOME/conf:\
+	$HIVE_HOME/lib/slf4j-api-*.jar"
+	#PIG VARIABLES END
+
+	source ~/.bashrc
+
+#verificar a versão instalada
+	pig -version
+
+#iniciar o terminal pig
+	pig
+
+
