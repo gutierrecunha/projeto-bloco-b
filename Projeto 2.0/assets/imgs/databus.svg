@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4122.5195"
+   height="1360.7008"
+   viewBox="0 0 1090.75 360.01895"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="databus.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="2783.7961"
+     inkscape:cy="579.00179"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,63.018625)">
+    <path
+       style="opacity:1;fill:#d3d3d3;fill-opacity:1;stroke:#000005;stroke-width:14.16854286;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 233.22474,-38.808623 a 48.501712,31.357347 0 0 0 -48.50216,31.3568318 48.501712,31.357347 0 0 0 3.1446,11.0706159 L 96.07048,38.277741 A 48.501712,31.357347 0 0 0 55.795925,24.350152 48.501712,31.357347 0 0 0 7.29376,55.706957 48.501712,31.357347 0 0 0 44.806493,86.21664 l 1.330837,72.11825 a 48.501712,31.357347 0 0 0 -35.587689,30.22386 48.501712,31.357347 0 0 0 48.502165,31.35681 48.501712,31.357347 0 0 0 32.518751,-8.14069 l 98.139333,35.09663 a 48.501712,31.357347 0 0 0 -3.35826,11.37879 48.501712,31.357347 0 0 0 48.49994,31.3568 48.501712,31.357347 0 0 0 48.50216,-31.3568 48.501712,31.357347 0 0 0 -3.44059,-11.57232 l 102.45453,-38.68313 a 48.501712,31.357347 0 0 0 38.05132,11.92072 48.501712,31.357347 0 0 0 48.50216,-31.35681 48.501712,31.357347 0 0 0 -47.41166,-31.32256 L 420.21202,86.995279 A 48.501712,31.357347 0 0 0 465.66527,55.706957 48.501712,31.357347 0 0 0 417.16309,24.350152 48.501712,31.357347 0 0 0 375.83811,39.36753 L 278.0927,4.4108518 a 48.501712,31.357347 0 0 0 3.63422,-11.862643 48.501712,31.357347 0 0 0 -48.50218,-31.3568318 z"
+       id="path4525"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:145.57484436px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:none;fill-opacity:1;stroke:#000005;stroke-width:3.63937092;stroke-opacity:1"
+       x="357.61923"
+       y="199.12622"
+       id="text4582"
+       transform="scale(1.2606466,0.79324371)"><tspan
+         sodipodi:role="line"
+         id="tspan4580"
+         x="357.61923"
+         y="199.12622"
+         style="fill:none;stroke:#000005;stroke-width:3.63937092;stroke-opacity:1">ataBus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:254.53849792px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#000005;stroke-width:6.36346292;stroke-opacity:1"
+       x="76.460663"
+       y="247.61476"
+       id="text4586"
+       transform="scale(1.3270072,0.75357543)"><tspan
+         sodipodi:role="line"
+         id="tspan4584"
+         x="76.460663"
+         y="247.61476"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000005;stroke-width:6.36346292;stroke-opacity:1">D</tspan></text>
+  </g>
+</svg>

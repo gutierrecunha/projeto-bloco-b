@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1"/>
+    <title>SPINNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<style>
+		@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+		* {
+			font-family: 'Nanum Gothic', sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+		
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
+		
+		code {display: block; border-radius: 0;}
+		.tab1x:before {content: "\00a0\00a0\00a0\00a0";}
+		.tab2x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
+		.tab3x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
+		.tab4x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
+		.tab5x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
+
+	</style>
+</head>
+<body style="height: 300%;">
+	<div id="spin"></div>
+
+	<div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Example
+			</div>
+			<div class="panel-body">
+				<div>
+<code>$(function(){</code>
+<code class="tab1x">//$("#spin").spinner(); //set default</code>
+<code class="tab1x"></code>
+<code class="tab1x">//customizing</code>
+<code class="tab1x">$("#spin").spinner({</code>
+<code class="tab2x">color: "black"</code>
+<code class="tab2x">, background: "rgba(255,255,255,0.5)"</code>
+<code class="tab2x">, html: "&lt;i class='fa fa-repeat' style='color: gray;'&gt;&lt;/i&gt;"</code>
+<code class="tab1x">});</code>
+<code class="tab1x"></code>
+<code class="tab1x">$("#show").click(function(){</code>
+<code class="tab2x">$("#spin").show();</code>
+<code class="tab1x"></code>
+<code class="tab2x">setTimeout(function(){</code>
+<code class="tab3x">$("#spin").hide();</code>
+<code class="tab2x">}, 1000);</code>
+<code class="tab1x">});</code>
+<code>});</code>
+				</div>
+				<br/>
+				<button type="button" id="show" class="btn btn-default">SHOW</button>
+			</div>
+		</div>
+	</div>
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="jquery.babypaunch.spinner.min.js"></script>
+	<script>
+		$(function(){
+			//$("#spin").spinner();
+
+			$("#spin").spinner({
+				color: "black"
+				, background: "rgba(255,255,255,0.5)"
+				, html: "<i class='fa fa-repeat' style='color: gray;'></i>"
+				, spin: true
+			});
+			
+			$("#show").click(function(){
+				$("#spin").show();
+
+				setTimeout(function(){
+					$("#spin").hide();
+				}, 1000);
+			});
+		});
+	</script>
+</body>
+</html>

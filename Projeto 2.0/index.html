@@ -1,0 +1,157 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="styles/leaflet-vector-markers.css">
+
+    <link rel="stylesheet" href="styles/map.css" />
+
+</head>
+
+<body>
+
+    <div id="loadingDiv"></div>
+
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand corMenu" href="#">
+            <img src="assets/imgs/logo.png" width="250px" height="30" class="d-inline-block align-top" alt=""> <label>- Análise de dados de ônibus do RJ </label>
+        </a>
+    </nav>
+
+    <div id="mapa">
+
+        <div id="divDatas" class="combo left1">
+            <select class="form-control" id="comboDatas">
+                <option value="" selected>Selecione uma Data</option>
+            </select>
+        </div>
+
+        <div id="divLinhas" class="combo left17">
+            <select class="form-control" id="comboLinhas">
+                <option value="" selected>Selecione uma Linha</option>
+            </select>
+        </div>
+
+        <div id="divHoras" class="combo left33">
+            <select class="form-control" id="comboHoras">
+                    <option value="" selected>Selecione uma hora</option>
+            </select>
+        </div>
+
+        <div id="divGrafico" class="divGrafico">
+            <button id="btGraficos" type="button" class="btn btn-warning">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <div id="divgraficos" class="row divgraficos">
+
+            <div class="col-lg -6">
+                <button id="btGraficosVelocidade" type="button" class="btn btn-warning">
+                    <i class="fa fa-line-chart" aria-hidden="true">Média de velocidade</i>
+                </button>
+            </div>
+            <div class="col-lg -6">
+                <button id="btGraficosVelocidadeData" type="button" class="btn btn-warning">
+                    <i class="fa fa-line-chart" aria-hidden="true">Média de velocidade durante o dia</i>
+                </button>
+            </div>
+
+        </div>
+
+        <div id="divLegenda" class="divLegenda">
+            <div class="conteudoLegenda">
+                <label>Velocidade Máxima : </label><label id="velocidadeMaximaDia"></label>
+
+                <ul class="listaLegenda">
+                    <li class="baixo"><span class="textoLegenda">velocidade menor que 30% da velocidade máxima</span></li>
+                    <li class="medio"><span class="textoLegenda">velocidade entre 30% e 60% da velocidade máxima</span></li>
+                    <li class="alto"><span class="textoLegenda">velocidade maior que 60% da velocidade máxima</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 id="tituloModal" class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="mapid">
+                    </div>
+                    <div class="div-modal">
+                        <div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="libs/leaflet/leaflet.js"></script>
+
+<script src="libs/leaflet-vector-markers.js"></script>
+
+<script src="libs/spin/jquery.babypaunch.spinner.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+
+
+<script>
+    loading = $('#loadingDiv').spinner();
+
+    $(document)
+        .ajaxStart(function() {
+            loading.show();
+        })
+        .ajaxStop(function() {
+            loading.hide();
+        });
+
+
+
+    var host = "http://127.0.0.1:5000";
+
+    if (document.domain) {
+        host = "http://" + document.domain + ":5000";
+    }
+
+    var mymap = L.map('mapa');
+    var markerGroup = L.featureGroup().addTo(mymap);
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
+
+    setTimeout(function() {
+        mymap.invalidateSize()
+    }, 500);
+
+    mymap.setView([-22.9068, -43.1729], 10);
+</script>
+
+<script src="js/mapa.js"></script>
+<script src="js/combos.js"></script>
+<script src="js/graficos.js"></script>
+
+</html>
