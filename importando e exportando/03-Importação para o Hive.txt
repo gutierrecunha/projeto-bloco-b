@@ -1,0 +1,12 @@
+<IMPORTAÇÃO TOTAL PARA O HIVE>
+	sqoop import \
+	--connect jdbc:mysql://localhost/onibus_db \
+	--username root \
+	--password-file /user/$USER/mysql.password \
+	--table coleta \
+	--hive-import \
+	--map-column-hive  dataHora=TIMESTAMP,ordem=STRING,linha=STRING,latitude=DECIMAL,longitude=DECIMAL,velocidade=DECIMAL,datacoleta=TIMESTAMP \
+	--null-string '\\N' \
+	--null-non-string '\\N' \
+	--warehouse-dir /tmp/hive/imports/conferencia \
+	--split-by ordem

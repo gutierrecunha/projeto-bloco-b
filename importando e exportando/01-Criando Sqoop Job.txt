@@ -1,0 +1,13 @@
+<CRIANDO JOB PARA IMPORTAÇÃO INCREMENTAL>
+sqoop job \
+--create coleta \
+-- import \
+--connect jdbc:mysql://localhost/onibus_db \
+--username root \
+--password-file /user/$USER/mysql.password \
+--table coleta \
+--split-by datahora \
+--target-dir /dir_incremental/coleta \
+--incremental append \
+--check-column datacoleta \
+--last-value '2017-10-01 00:00:00'

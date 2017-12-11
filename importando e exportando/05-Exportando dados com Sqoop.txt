@@ -1,0 +1,12 @@
+<EXPORTANDO DADOS PARA O MYSQL>
+
+sqoop export \
+-Dsqoop.export.statements.per.transaction=10 \
+--connect jdbc:mysql://localhost/onibus_db \
+--username root \
+--password-file /user/$USER/mysql.password \
+--table ws_coleta \
+--export-dir /dir_exportacao/coleta \
+--batch \
+--staging-table staging_ws_coleta \
+--clear-staging-table

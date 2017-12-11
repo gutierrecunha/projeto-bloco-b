@@ -1,0 +1,6 @@
+Na pasta de importação e exportação estão disponibilizados todos os passos necessários para:
+	-importar dados de um banco MySQL para o HDFS do Hadoop;
+	-importar dados para o Hive;
+	-manipular os dados no HDFS para preparação dos arquivo de exportação;
+	-exportação dos dados para o MySQL;
+Será necessário apenas seguir a sequência dos arquivos numerados. Em caso de dúvida ou dificuldade fique a vontade para entrar em contato que retornarei o mais breve possível
