@@ -5,10 +5,10 @@ from datetime import datetime
 import time
 
 #configura conexao com o banco de dados
-mydb = MySQLdb.connect(host='localhost',
-    user='root',
-    passwd='root',
-    db='onibus_db')
+mydb = MySQLdb.connect(host='0.0.0.0',
+    user='',
+    passwd='',
+    db='')
 
 #configura a url do arquivo csv
 CSV_URL = 'http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm'
