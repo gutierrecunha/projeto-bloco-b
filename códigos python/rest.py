@@ -12,10 +12,10 @@ conversions[FIELD_TYPE.DECIMAL] = float
 conversions[FIELD_TYPE.NEWDECIMAL] = float
 
 #conexão com o banco
-mydb = MySQLdb.connect(host='51.15.65.242',
-    user='coleta',
-    passwd='T3@j10G24M,8',
-    db='onibus_db')
+mydb = MySQLdb.connect(host='0.0.0.0',
+    user='',
+    passwd='',
+    db='')
 
 cursor = mydb.cursor()
 
@@ -39,7 +39,7 @@ def distanciaKmLatLong(lon1, lat1, lon2, lat2):
 
 @app.route("/datas")
 def retornaDatas():
-    query = "select distinct DATE_FORMAT(dataHora,'%d/%m/%Y') as data from onibus_db.coleta"
+    query = "select distinct DATE_FORMAT(dataHora,'%d/%m/%Y') as data from onibus_db.ws_coleta order by 1"
     cursor.execute(query)
 
     df=pd.DataFrame([row for row in cursor.fetchall()])
@@ -49,7 +49,7 @@ def retornaDatas():
 
 @app.route("/linhas")
 def retornaLinhas():
-    query = "select distinct linha from onibus_db.coleta where linha != '' "
+    query = "select distinct linha from onibus_db.ws_coleta order by 1"
     cursor.execute(query)
 
     df=pd.DataFrame([row for row in cursor.fetchall()])
@@ -59,7 +59,7 @@ def retornaLinhas():
 
 @app.route("/horas/<data>/<linha>")
 def retornaHoras(data, linha):
-    query = "select distinct DATE_FORMAT(dataHora,'%H:00:00') as hora from onibus_db.coleta where DATE_FORMAT(dataHora,'%d/%m/%Y') = '" + data.replace('-','/') + "' and linha = " + linha
+    query = "select distinct DATE_FORMAT(dataHora,'%H:00:00') as hora from onibus_db.ws_coleta where DATE_FORMAT(dataHora,'%d/%m/%Y') = '" + data.replace('-','/') + "' and linha = " + linha + " order by 1"
     
     cursor.execute(query)
     df=pd.DataFrame([row for row in cursor.fetchall()])
@@ -82,7 +82,7 @@ def retornaLinha(linha,data = None,hora = None):
     if(hora != None):
         sqlHora = " and DATE_FORMAT(dataHora,'%H:00:00') = '" + hora + "'"
 
-    query = "select DATE_FORMAT(dataHora,'%d/%m/%Y %H:%i:%s') as dataFormatada, onibus_db.coleta.* from onibus_db.coleta where linha = " + linha + sqlData + sqlHora
+    query = "select DATE_FORMAT(dataHora,'%d/%m/%Y %H:%i:%s') as dataFormatada, onibus_db.ws_coleta.* from onibus_db.ws_coleta where linha = " + linha + sqlData + sqlHora
     cursor.execute(query)
 
     df=pd.DataFrame([row for row in cursor.fetchall()])
@@ -113,7 +113,7 @@ def mediaVelocidadePorLinha(linha, data = None):
         sqlWhereData = " and DATE_FORMAT(dataHora,'%d/%m/%Y') = '" + data.replace('-','/') + "'"
 
 
-    query = "select "+ sqlData +",linha,velocidade from onibus_db.coleta where linha = " + linha + sqlWhereData
+    query = "select "+ sqlData +",linha,velocidade from onibus_db.ws_coleta where linha = " + linha + sqlWhereData
     cursor.execute(query)
 
     df=pd.DataFrame([row for row in cursor.fetchall()])
@@ -128,7 +128,7 @@ def mediaVelocidadePorLinha(linha, data = None):
 @app.route("/quilometragemPorLinha/<linha>")
 def quilometragemPorLinha(linha):
     
-    query = "select DATE_FORMAT(dataHora,'%d/%m/%Y') as data,DATE_FORMAT(dataHora,'%d/%m/%Y %H:%i:%s') as dataHoraMinuto,linha,latitude,longitude from onibus_db.coleta where linha = " + linha
+    query = "select DATE_FORMAT(dataHora,'%d/%m/%Y') as data,DATE_FORMAT(dataHora,'%d/%m/%Y %H:%i:%s') as dataHoraMinuto,linha,latitude,longitude from onibus_db.ws_coleta where linha = " + linha
     cursor.execute(query)
 
     df=pd.DataFrame([row for row in cursor.fetchall()])

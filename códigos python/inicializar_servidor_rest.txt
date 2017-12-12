@@ -1,0 +1,19 @@
+#Para inicializar o servidor rest.py siga os passos abaixo
+
+#criar o diretório e colocar o script rest.py dentro
+
+	sudo mkdir /etc/scripts_python_as_service/ #colocar o script rest.py aqui dentro
+	export FLASK_APP=/etc/scripts_python_as_service/rest.py
+	python3 -m flask run --host=0.0.0.0 > /var/log/rest.log &
+	disown
+
+#execute o comando abaixo no navegador para testar
+	
+	http://51.15.65.242:5000/linhas
+	
+#para matar o processo
+
+	ps aux |grep -i python
+	kill XXXX (número do processo)
+	
+	
