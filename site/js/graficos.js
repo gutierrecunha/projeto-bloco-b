@@ -37,13 +37,22 @@ $(document).ready(function() {
                 data: {
                     labels: arrayKeys,
                     datasets: [{
-                        label: "Média de velocidade por Data - Linha:" + $("#comboLinhas").val(),
+                        label: "Média de velocidade por Data - Linha " + $("#comboLinhas").val(),
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: arrayValues,
                     }, ]
                 },
-                options: {}
+                options: {
+                    tooltips: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(tooltipItems, data) {
+                                return tooltipItems.yLabel + " km/h";
+                            }
+                        }
+                    }
+                }
             });
 
             $("#tituloModal").html("Média de Velocidade");
@@ -94,16 +103,25 @@ $(document).ready(function() {
                 data: {
                     labels: arrayKeys,
                     datasets: [{
-                        label: "Média de velocidade por Hora - Linha:" + $("#comboLinhas").val(),
+                        label: "Média de velocidade por Hora - Linha " + $("#comboLinhas").val(),
                         backgroundColor: '#00f',
                         borderColor: 'rgb(255, 99, 132)',
                         data: arrayValues,
                     }]
                 },
-                options: {}
+                options: {
+                    tooltips: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(tooltipItems, data) {
+                                return tooltipItems.yLabel + " km/h";
+                            }
+                        }
+                    }
+                }
             });
 
-            $("#tituloModal").html("Média de Velocidade por hora");
+            $("#tituloModal").html("Média de Velocidade por Hora");
             $('#myModal').modal('show');
         });
 
