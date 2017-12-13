@@ -43,11 +43,16 @@
 .divgraficos {
     z-index: 1000;
     position: absolute;
-    width: 520px;
+    width: 43%;
     top: 20%;
     height: 38px;
     left: -45%;
     transition: 1s all;
+}
+
+.fa-line-chart:before {
+    content: "\f201";
+    margin-right: 5px;
 }
 
 .divLegenda {
