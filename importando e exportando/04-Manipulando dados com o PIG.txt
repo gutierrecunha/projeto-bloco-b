@@ -1,5 +1,5 @@
 <FILTRANDO OS DADOS RETIRANDO AS LINHAS VAZIAS>
-dados = LOAD '/dir_incremental/coleta/' USING PigStorage(',') AS (dataHora:chararray, ordem:chararray,linha:chararray,latitude:chararray ,longitude:chararray ,velocidade:chararray,datacoleta:chararray);
-dados_filtrados = FILTER dados BY (linha is not null);
+dados = LOAD '/dir_incremental/coleta/' USING PigStorage(',') AS (dataHora:chararray, ordem:chararray,linha:chararray,latitude:chararray ,longitude:chararray ,velocidade:double,datacoleta:chararray);
+dados_filtrados = FILTER dados BY (linha is not null) AND (velocidade < 160.0);
 resultado = FOREACH dados_filtrados GENERATE dataHora,ordem,linha,latitude,longitude,velocidade;
 STORE resultado INTO '/dir_exportacao/coleta' USING PigStorage(',');
